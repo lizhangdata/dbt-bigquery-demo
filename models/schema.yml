@@ -9,8 +9,21 @@ models:
         tests:
           - unique
           - not_null
+      - name: first_name
+        data_type: string
+        description: ""
+      - name: last_name
+        data_type: string
+        description: ""
       - name: first_order_date
         description: NULL when a customer has not yet placed an order
+      - name: most_recent_order_date
+        data_type: date
+        description: ""
+
+      - name: number_of_orders
+        data_type: int64
+        description: ""
 
   - name: stg_customers
     description: This model cleans up customer data
@@ -19,6 +32,13 @@ models:
         tests:
           - unique
           - not_null
+      - name: first_name
+        data_type: string
+        description: ""
+
+      - name: last_name
+        data_type: string
+        description: ""
 
   - name: stg_orders
     description: This model cleans up order data
@@ -38,3 +58,6 @@ models:
           - relationships:
               to: ref('stg_customers')
               field: customer_id
+      - name: order_date
+        data_type: date
+        description: ""
