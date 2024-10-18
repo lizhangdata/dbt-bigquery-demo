@@ -22,6 +22,9 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+vars:
+  'remote_project_id': 'mythical-harbor-412018'
+  'remote_schema': 'dbt'
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -32,9 +35,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_bigquery_demo:
     +materialized: table
-    staging:
-      schema: staging
+    customers:
+      +enabled: true
+      +dataset: customers
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
-      enabled: false
+      +enabled: false
+
+query-comment: 
+  job-label: true
