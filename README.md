@@ -4,6 +4,7 @@ Welcome to your new dbt project!
 - install dbt core:
     - create a new venv: python -m venv dbt-env
     - activate the virtural environment: source dbt-env/bin/activate
+    - to deactivate the virtual environment: deactivate
     - install the adapter: python -m pip install dbt-core dbt-snowflake dbt-bigquery
     - to upgrade dbt to the latest version: 
         - dbt --version
